@@ -6,11 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/authenticate/login/login.component';
+import { ResetPasswordComponent } from './components/authenticate/reset-password/reset-password.component';
+import { SignUpComponent } from './components/authenticate/sign-up/sign-up.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    ResetPasswordComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

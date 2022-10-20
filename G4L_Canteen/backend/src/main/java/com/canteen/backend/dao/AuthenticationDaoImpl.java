@@ -46,7 +46,6 @@ public class AuthenticationDaoImpl implements AuthenticationDao {
 		
 		if(phone_numbers.contains(user.getMobile_number())||emails.contains(user.getEmail_Id())) {
 			logger.error("UserExistsException thrown by the method");
-			System.out.println("You already have an account!Please kindly login!!");
 			throw new UserExistsException( "You already have an account!Please kindly login!!");
 		}
 	}

@@ -1,0 +1,42 @@
+﻿<div class="wrapper">
+
+    <div class="block">
+
+      <h1  class="text-dark">
+        <img src="\assets\images\login.jpg" class="center" />
+    <!-- <b>Login</b> -->
+    </h1>
+
+       <form [formGroup]="login">
+           <input type="email" placeholder="ex:abc@gmail.com" class="inp" formControlName="emailId"/>
+           <input type="password" placeholder="Password" class="inp" formControlName="password"/>
+           <div class="btns">
+           <button>login</button><br>
+           <p class = "message">Not Registered? <a routerLink="/authenticate/sign-up"> Register</a></p>
+           <p class = "message">Forgot Password? <a href = "#"> Reset</a></p>
+           </div>
+       </form>
+       <!-- <form [formGroup]="login">
+        <input type="text" placeholder="Jhon" class="inp" formControlName="name"/>
+        <input type="text" placeholder="john@example.com" class="inp" formControlName="email"/>
+        <div class="btns">
+        <button >LOGIN</button>
+        <button >SIGN UP</button>
+        </div>
+    </form> -->
+
+    </div>
+
+</div>
+
+<!-- <div class = "login-page">
+<div class = "form">
+    <form class = "login-form">
+    <input type="text" placeholder="Enter your username"/>
+    <input type="password" placeholder="Enter your password"/>
+    <button>login</button>
+    <p class = "message">Not Registered? <a href = "#"> Register</a></p>
+    </form>
+</div>
+</div> -->
+
