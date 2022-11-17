@@ -47,12 +47,12 @@ export class ItemsAdminComponent implements OnInit {
     getItems()
     {
 
-this.httpClient.get('http://localhost:8094/admin/getItems/adminId/' + this.imageName)
-    .subscribe(
-      res => {
-        this.retrieveResonse = res;
-        this.base64Data = this.retrieveResonse.picByte;
-        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+// this.httpClient.get('http://localhost:8094/admin/getItems/adminId/' + this.imageName)
+//     .subscribe(
+//       res => {
+//         this.retrieveResonse = res;
+//         this.base64Data = this.retrieveResonse.picByte;
+//         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
       this.adminService.getItems(localStorage.email).subscribe(
         data=>{
           this.logger.logStatus("Got all the items successfully");
@@ -60,8 +60,8 @@ this.httpClient.get('http://localhost:8094/admin/getItems/adminId/' + this.image
                 }
 
       )
-    }
-    )
+    // }
+    // )
   }
 
 
