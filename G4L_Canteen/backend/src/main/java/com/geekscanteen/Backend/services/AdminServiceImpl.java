@@ -53,7 +53,8 @@ public class AdminServiceImpl implements AdminService {
 				
 				SubCategory sub_category = admin_dao.getSubCategory(subCategory);
 				item.setSubCategory(sub_category);
-				item.setPicture(String.valueOf(admin_dao.generateItemId()));
+//				item.setItemimage(String.valueOf(admin_dao.generateItemId()));
+			
 				if(item.isActive()!=true || item.isActive()!=false)
 					item.setActive(true);
 				if(item.getItemDescription().equals(""))
@@ -66,10 +67,7 @@ public class AdminServiceImpl implements AdminService {
 		else {
 			throw new NotAnAdminException("Sorry..You are not allowed for adding item");
 		}
-			
-	
 		 return item;
-	
 	}
 
 	@Override
@@ -165,7 +163,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public boolean editItem(Item item) {
-		item.setPicture(String.valueOf(item.getItemId()));
+//		item.setItemimage(String.valueOf(item.getItemId()));
 		admin_dao.editItem(item);
 		return true;
 	}
@@ -190,9 +188,6 @@ public class AdminServiceImpl implements AdminService {
 		return true;
 		
 	}
-
-	
-	
 	
 
 	@Override
@@ -215,11 +210,7 @@ public class AdminServiceImpl implements AdminService {
 			}
 		
 		 admin_dao.updateOrderStatus(order);
-	}
-
-	
-
-
+		}
 	}
 
 	@Override

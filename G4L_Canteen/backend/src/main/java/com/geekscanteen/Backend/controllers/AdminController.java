@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.geekscanteen.Backend.entities.Category;
 import com.geekscanteen.Backend.entities.Item;
@@ -34,6 +36,8 @@ import com.geekscanteen.Backend.services.AdminService;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
+	
+	private byte[] bytes;
 
     Logger logger = LoggerFactory.getLogger(AdminController.class);
 	@Autowired
@@ -106,6 +110,11 @@ public class AdminController {
 		return ResponseEntity.ok(sub_category);
 	}
 	
+	@PostMapping("/upload")
+	public void uploadImage(@RequestParam("imageFile") MultipartFile file) throws IOException{
+		this.bytes = file.getBytes();
+	}
+	
 	
 	/**
 	 * Method Description : Admin will be able to add a new item according to sub category id to which it belongs to.
@@ -119,9 +128,11 @@ public class AdminController {
 	@PostMapping("/addItem/{username}/{subCategory}")
 	public ResponseEntity<Item> addItem( @PathVariable String username, @PathVariable int subCategory, @Valid  @RequestBody Item item)
 	{
+		item.setPicByte(this.bytes);
 		logger.trace("Requested to add a new Item");
 		Item item_details  = admin_service.addItem(username, subCategory, item);
 		logger.trace(" completed request to add a new item Details");
+		this.bytes = null;
 		return ResponseEntity.ok(item_details);
 		
 	}

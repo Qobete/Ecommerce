@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../../Models/Item';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 // import { MergeArrayPipe } from '../../../Pipes/AdminPipes/merge-array.pipe';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminServiceService } from '../../../Services/admin-service/admin-service.service';
 import { LoggingService } from '../../../Models/LoggingService';
 
@@ -12,67 +13,85 @@ import { LoggingService } from '../../../Models/LoggingService';
 })
 export class ItemsAdminComponent implements OnInit {
   searchtext:string=""
-  items:Item[]
+  items: Array<Item>;
+  itemsRecieved: Array<Item>;
+  selectedItem: Item;
   value:string
   status:boolean
   child_records_found:boolean =false;
   searchText:string
+  action: string;
 
-  
-    //Injecting required services 
-    constructor(private adminService: AdminServiceService,private logger:LoggingService, private router:Router) { }
-  
+  retrieveResonse: any;
+  retrievedImage: any;
+  base64Data: any;
+  imageName: any;
+
+
+    //Injecting required services
+    constructor(private adminService: AdminServiceService, private activatedRoute: ActivatedRoute, private logger:LoggingService, private router:Router, private httpClient: HttpClient) { }
+
     ngOnInit() {
 
-      //if local storage is null, navigate to home page 
+      //if local storage is null, navigate to home page
       if (localStorage.email == null) {
         this.router.navigate(['/customer'])
       }
+      // this.refreshData();
       this.getItems();
-    
-   
+
+
     }
 
-    
   //Function to get all the items
     getItems()
     {
+
+this.httpClient.get('http://localhost:8094/admin/getItems/adminId/' + this.imageName)
+    .subscribe(
+      res => {
+        this.retrieveResonse = res;
+        this.base64Data = this.retrieveResonse.picByte;
+        this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
       this.adminService.getItems(localStorage.email).subscribe(
         data=>{
           this.logger.logStatus("Got all the items successfully");
           this.items=data
                 }
-  
+
       )
     }
+    )
+  }
+
 
   //passing item id using router params(Activated router) to edit a item
   edit(itemId:number){
     this.logger.logStatus("navigated to edit item");
     this.router.navigate(['/admin/addItem',itemId])
   }
-  
+
   //delete a item
   delete(itemId : number){
-  
+
     //calling a service to delete the item
     this.adminService.deleteItem(itemId).subscribe(data=>{
       this.getItems();
       this.logger.logStatus("Delete the item by item Id");
     },
-    
+
     //error handling messages which are thrown by spring boot
     err=>{
       if(err.error.errorMessage=="child records found") {
         this.child_records_found=true;}
-      
+
     })
-    
+
   }
 
   //function to update active status of a item
   updateActiveStatus(itemId:number){
-  
+
 
   var values = (<HTMLInputElement>document.getElementById(itemId.toString()+"-active")).value
   //calling service  to update active status

@@ -4,6 +4,7 @@ import { SubCategory } from '../../Models/subCategory';
 import { Category } from '../../Models/Category';
 import { Item } from '../../Models/Item';
 import { Order } from '../../Models/Order';
+import {ajax} from 'rxjs/ajax';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,10 @@ import { Order } from '../../Models/Order';
 export class AdminServiceService {
   baseUrl: string = "http://localhost:8094/admin";
   constructor(private http:HttpClient) { }
+
+  uploadImage(formData:any){
+    return ajax.post('${this.baseUrl}addedItem',formData);
+  }
 
   getSubCategories(username:string){
     return this.http.get<SubCategory[]> (this.baseUrl+"/getSubCategories/"+username);

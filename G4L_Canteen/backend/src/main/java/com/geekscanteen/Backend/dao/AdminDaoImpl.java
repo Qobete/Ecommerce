@@ -22,7 +22,6 @@ import com.geekscanteen.Backend.repository.OrderRepository;
 import com.geekscanteen.Backend.repository.SubCategoryRepository;
 import com.geekscanteen.Backend.repository.UserRepository;
 
-
 @Repository
 @Transactional
 public class AdminDaoImpl implements AdminDao {
@@ -113,8 +112,8 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public void addItem(String user_name, Item item) {
 		itemRepository.save(item);
+}
 		
-	}
 	@Override
 	public List<Order> getOrders(int orderId)
 	{
@@ -164,8 +163,6 @@ public class AdminDaoImpl implements AdminDao {
 		else {
 			throw new ChildRecordsFoundException("child records found");
 		}
-
-		
 	}
 
 	@Override
@@ -196,7 +193,6 @@ public class AdminDaoImpl implements AdminDao {
 		return sub_categories;
 	
 	}
-
   
 	@Override
 	public List<Category> getCategories(String username) {
@@ -218,5 +214,4 @@ public class AdminDaoImpl implements AdminDao {
 		System.err.println(item.isActive());
 	
 	}
-
 }

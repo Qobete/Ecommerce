@@ -31,8 +31,8 @@ public class G4LCanteenApplication implements CommandLineRunner{
 	        // Inserting admin data in the mysql table.
 		 	User account=new User();
 			account.setEmailId("thabiso@gmail.com");
-			account.setPassword("Carter12@");
-			account.setMobileNumber("0785619237");
+			account.setPassword("Thabiso12@");
+			account.setMobileNumber("0785619239");
 			account.setSecurity_question("What is your hobby?");
 			account.setRole("Admin");
 			account.setSecurity_answer("Programming");
@@ -44,25 +44,25 @@ public class G4LCanteenApplication implements CommandLineRunner{
 			branch.setBranchId(1);
 			branch.setBranchCity("Sandton City");
 			branch.setBranchRegion("Johannesburg");
-			branch.setContactNumber("0785619237");
+			branch.setContactNumber("0785619239");
 			branch.setAdmin(account);
 			branchRepository.save(branch);
 			
 			// Inserting admin data in the mysql table.
-			account.setEmailId("dineo@gmail.com");
-			account.setPassword("Carter12@");
+			account.setEmailId("moses@gmail.com");
+			account.setPassword("Moses12@");
 			account.setMobileNumber("0785619234");
 			account.setSecurity_question("What is your hobby?");
 			account.setRole("Admin");
 			account.setSecurity_answer("Coding");
-			account.setCustomerName("Dineo Mfati");
+			account.setCustomerName("Moses Shilenge");
 			userRepository.save(account);
 			
 			// Inserting the branch data in the mysql table.
 			branch.setBranchId(2);
 			branch.setBranchCity("Century City");
 			branch.setBranchRegion("Cape Town");
-			branch.setContactNumber("0785619237");
+			branch.setContactNumber("0785619234");
 			branch.setAdmin(account);
 			branchRepository.save(branch);
 	    }

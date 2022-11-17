@@ -56,16 +56,21 @@ public class Item  {
 	
 	@Column(name="quantity")
 	private int quantity;
+
+
+	@Column(name = "picByte", length = 100000)
+    private byte[] picByte;
 	
-	@Length(max=11)
-	private String picture;
+//	@Length(max=11)
+//	private String picture;
 	
-	@Column(name="PICBYTE",length=2227)
-	private byte[] picByte;
+//	@Column(name="PICBYTE",length=2227)
+//	private byte[] picByte;
 	
-	@Column(name="PIC_TYPE")
-	private String pic_type;
-	
+//	@Column(name="PIC_TYPE")
+//	private String pic_type;
+
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="branch")
 	private Branch branch;
@@ -92,7 +97,7 @@ public class Item  {
 	public Item(int itemId, @Length(max = 25) @NotEmpty(message = "item name cannot be empty") String itemName,
 			@Length(max = 50) String itemDescription, @Min(0) double itemPrice, @Length(max = 10) String speciality,
 			boolean active, @Pattern(regexp = "veg|non-veg") @Length(max = 10) String type, int quantity,
-			@Length(max = 11) String picture, byte[] picByte, String pic_type, Branch branch, CarryBox carryBox,
+			byte[] picByte, Branch branch, CarryBox carryBox,
 			List<Order> orders, SubCategory subCategory) {
 		super();
 		this.itemId = itemId;
@@ -103,9 +108,9 @@ public class Item  {
 		this.active = active;
 		this.type = type;
 		this.quantity = quantity;
-		this.picture = picture;
+//		this.picture = picture;
 		this.picByte = picByte;
-		this.pic_type = pic_type;
+//		this.pic_type = pic_type;
 		this.branch = branch;
 		this.carryBox = carryBox;
 		this.orders = orders;
@@ -191,34 +196,34 @@ public class Item  {
 		this.quantity = quantity;
 	}
 
-	public String getPicture() {
-		return picture;
-	}
+//	public String getPicture() {
+//		return picture;
+//	}
+//
+//
+//	public void setPicture(String picture) {
+//		this.picture = picture;
+//	}
 
 
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
-
-	public byte[] getPicByte() {
-		return picByte;
-	}
-
-
-	public void setPicByte(byte[] picByte) {
-		this.picByte = picByte;
-	}
-
-
-	public String getPic_type() {
-		return pic_type;
-	}
-
-
-	public void setPic_type(String pic_type) {
-		this.pic_type = pic_type;
-	}
+//	public byte[] getPicByte() {
+//		return picByte;
+//	}
+//
+//
+//	public void setPicByte(byte[] picByte) {
+//		this.picByte = picByte;
+//	}
+//
+//
+//	public String getPic_type() {
+//		return pic_type;
+//	}
+//
+//
+//	public void setPic_type(String pic_type) {
+//		this.pic_type = pic_type;
+//	}
 
 	@JsonIgnore
 	public Branch getBranch() {
@@ -256,5 +261,13 @@ public class Item  {
 
 	public void setOrdered(List<Order> orders) {
 		this.orders = orders;
+	}
+	
+	public byte[] getPicByte() {
+		return picByte;
+	}
+
+	public void setPicByte(byte[] picByte) {
+		this.picByte = picByte;
 	}
 }

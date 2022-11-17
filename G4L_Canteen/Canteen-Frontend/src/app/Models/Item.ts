@@ -12,9 +12,11 @@ export class Item{
     active:boolean;
     type:string;
     quantity:number;
-    picture:string;
-    picByte:number;
-    pic_type: string;
+    picByte: string;
+    retrievedImage: string;
+    // picture:string;
+    // picByte:number;
+    // pic_type: string;
     branch:Branch;
     carryBox:CarryBox;
     orders: Order[];

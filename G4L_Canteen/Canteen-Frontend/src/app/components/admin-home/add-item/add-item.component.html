@@ -39,6 +39,34 @@
                     </div>
                 </div>
                 <!-- End of Item Name-->
+
+           
+            <div class="form-group">
+                <input (change)="onFileChanged($event)" type="file">
+                <img *ngIf="imgURL" [src]="imgURL" height="200" width="200">
+            </div>
+
+<!--***************************************************************************************************************************-->
+                <!--Start of Item Image-->
+                <!-- <div *ngIf="uploadError">
+                    <div [innerHTML]="uploadError" class="error"></div>
+                  </div>
+                  <div class="form-group">
+                    <div class="upload-image">
+                      <div #image class="image-wrapper"></div>
+                      <div class="browse-btn">
+                        <input type="file" name="cameraImg" id="cameraImg" (change)="onSelectedFile($event)" />
+                        <div class="browse-image">
+                          <img src="assets/images/1000.jpg" width="60px" />
+                          <p>Browse image</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                <!-- End of Item Image-->
+
+<!--***************************************************************************************************************************-->
     
                 <!--Start of Item Description-->
                 <div class="itemDescription">
@@ -76,10 +104,10 @@
                             <i id="exclaim" class="fa fa-exclamation-circle"></i>
                         </div>
                         <div *ngIf="addItemForm.controls.itemPrice.errors.min">
-                            <p id="pattern">Item price should be min of Rs.10/-</p>
+                            <p id="pattern">Item price should be min of R5.00</p>
                         </div>
                         <div *ngIf="addItemForm.controls.itemPrice.errors.max">
-                            <p id="pattern">Item priceshould be max Rs.1000/-</p>
+                            <p id="pattern">Item priceshould be max R1000.00</p>
                         </div>
                     </div>
                     <div *ngIf="submitted && !addItemForm.controls.itemPrice.errors">
@@ -236,10 +264,10 @@
                             <i id="exclaim" class="fa fa-exclamation-circle"></i>
                         </div>
                         <div *ngIf="editItemForm.controls.itemPrice.errors.min">
-                            <p id="pattern">Item price should be min of Rs.10/-</p>
+                            <p id="pattern">Item price should be min of R5.00</p>
                         </div>
                         <div *ngIf="editItemForm.controls.itemPrice.errors.max">
-                            <p id="pattern">Item priceshould be max Rs.1000/-</p>
+                            <p id="pattern">Item priceshould be max R1000.00</p>
                         </div>
                     </div>
                     <div *ngIf="submitted && !editItemForm.controls.itemPrice.errors">
