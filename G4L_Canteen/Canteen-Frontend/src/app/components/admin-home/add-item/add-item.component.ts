@@ -23,12 +23,17 @@ export class AddItemComponent implements OnInit {
   subCategories: SubCategory[]
   selectedSubCatgeory: any
   itemId: number;
-
+  
   select: boolean = true
   item_details: Item
   addedItem: boolean = false;
   editedItem: boolean = false
   item_name_already_exists: boolean = false;
+
+  public event1;
+  receivedImagedata: any;
+  base64Data: any;
+  convertedImage: any;
 
   error: string;
   uploadError: string;
@@ -48,7 +53,7 @@ export class AddItemComponent implements OnInit {
   //injecting required services
   constructor(private formBuilder: FormBuilder,private logger:LoggingService, private adminService: AdminServiceService, private route: ActivatedRoute, private router: Router, private renderer: Renderer2, private httpClient: HttpClient) {
 
-    //getting item id for editing an item from other component using activated router
+    //getting item id for editing an item from other component using activated router 
     this.route.params.subscribe(params => {
       this.itemId = params['itemId'];
       if (this.itemId != null) {
@@ -58,7 +63,7 @@ export class AddItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    //if local storage is null, navigate to home page
+    //if local storage is null, navigate to home page 
     if (localStorage.email == null) {
       this.router.navigate(['/customer'])
     }
@@ -70,7 +75,7 @@ export class AddItemComponent implements OnInit {
     this.addItemForm = this.formBuilder.group({
       itemName: ['', [Validators.required, Validators.pattern("[A-Za-z].*")]],
       itemDescription: ['', [Validators.required, Validators.pattern("[A-Za-z].*")]],
-      itemPrice: ['', [Validators.required, Validators.min(5.00), Validators.max(1000)]],
+      itemPrice: ['', [Validators.required, Validators.min(10), Validators.max(1000)]],
       speciality: ['', [Validators.required]],
       type: ['', [Validators.required]],
       subCategory: ['', Validators.required]
@@ -136,7 +141,7 @@ export class AddItemComponent implements OnInit {
     this.adminService.getItem(itemId).subscribe(data => {
       this.logger.logStatus("Got item by item Id");
       this.item_details = data
-
+      
       this.logger.logStatus("Obtained itemId is set to form");
       //setting the values of item to editform
       this.editItemForm.patchValue(data)
@@ -166,6 +171,12 @@ export class AddItemComponent implements OnInit {
 
       this.httpClient.post('http://localhost:8094/admin/upload', uploadData, {observe: 'response'})
         .subscribe((response) => {
+
+          console.log(response);
+          this.receivedImagedata = response;
+          this.base64Data = this.receivedImagedata.pic;
+          this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
+
             if (response.status == 200) {
               this.adminService.addItem(localStorage.email, this.selectedSubCatgeory, this.addItemForm.value).subscribe(
                 (item) => {
@@ -173,9 +184,9 @@ export class AddItemComponent implements OnInit {
                   this.addedItem = true
                 }
               );
-
+            
               console.log('Image uploaded successfully');
-
+            
             } else {
               console.log('Image not uploaded successfully');
             }
@@ -203,7 +214,7 @@ export class AddItemComponent implements OnInit {
     // else {
     //   this.item_name_already_exists=false
 
-
+      
     //   //calling service to add a new item
     //   this.adminService.addItem(localStorage.email, this.selectedSubCatgeory, this.addItemForm.value).subscribe(
     //     data => {

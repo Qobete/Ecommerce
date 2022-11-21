@@ -21,6 +21,19 @@ import { AddItemComponent } from './Components/admin-home/add-item/add-item.comp
 import { ItemsAdminComponent } from './Components/admin-home/items-admin/items-admin.component';
 import { MergeArrayPipe } from './Pipes/AdminPipes/merge-array.pipe';
 import { SearchItemsPipe } from './Pipes/AdminPipes/search-items.pipe';
+import { SubcategoriesComponent } from './Components/admin-home/subcategories/subcategories.component';
+import { SearchSubCategoryPipe } from './Pipes/AdminPipes/search-sub-category.pipe';
+import { SearchCategoryPipe } from './Pipes/AdminPipes/search-category.pipe';
+import { FilterCategoriesPipe } from './Pipes/AdminPipes/filter-categories.pipe';
+import { CategoriesComponent } from './Components/admin-home/categories/categories.component';
+import { ItemsComponent } from './Components/customer/items/items.component';
+import { FilterCarryBoxItemsPipe } from './Pipes/CustomerPipes/filter-carry-box-items.pipe';
+import { FilterItemsPipe } from './Pipes/CustomerPipes/filter-items.pipe';
+import { FilterOrdersPipe } from './Pipes/CustomerPipes/filter-orders.pipe';
+import { FilterParameterPipe } from './Pipes/CustomerPipes/filter-parameter.pipe';
+import { FindQuantityPipe } from './Pipes/CustomerPipes/find-quantity.pipe';
+import { SortItemsPipe } from './Pipes/CustomerPipes/sort-items.pipe';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 
 
 @NgModule({
@@ -40,7 +53,20 @@ import { SearchItemsPipe } from './Pipes/AdminPipes/search-items.pipe';
     AddItemComponent,
     ItemsAdminComponent,
     MergeArrayPipe,
-    SearchItemsPipe
+    SearchItemsPipe,
+    SubcategoriesComponent,
+    SearchSubCategoryPipe,
+    SearchCategoryPipe,
+    FilterCategoriesPipe,
+    CategoriesComponent,
+    ItemsComponent,
+    FilterCarryBoxItemsPipe,
+    FilterItemsPipe,
+    FilterOrdersPipe,
+    FilterParameterPipe,
+    FindQuantityPipe,
+    SortItemsPipe,
+    MyAccountComponent
   ],
   imports: [
     BrowserModule,

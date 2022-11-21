@@ -13,12 +13,23 @@ import { AddCategoryComponent } from './Components/admin-home/add-category/add-c
 import { AddSubcategoryComponent } from './Components/admin-home/add-subcategory/add-subcategory.component';
 import { AddItemComponent } from './Components/admin-home/add-item/add-item.component';
 import { ItemsAdminComponent } from './Components/admin-home/items-admin/items-admin.component';
+import { SubcategoriesComponent } from './Components/admin-home/subcategories/subcategories.component';
+import { CategoriesComponent } from './Components/admin-home/categories/categories.component';
+import { ItemsComponent } from './Components/customer/items/items.component';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
+
 
 
 const routes: Routes = [
   { path: "", component: CustomerComponent },
   {
     path: "customer", component: CustomerComponent, children: [{ path: "", component: HomeComponent },
+    { path: "items/:type/:filter", component: ItemsComponent },
+    // { path: "myCarryBox", component: CarryBoxComponent },
+    // { path: "myOrders", component: MyOrdersComponent },
+     { path: "myAccount", component: MyAccountComponent },
+    // { path: "placeOrder", component: PlaceOrderComponent },
+    // { path: "trackOrder/:orderId", component: TrackOrderComponent },
   
     ]
   },
@@ -43,8 +54,8 @@ const routes: Routes = [
     { path: 'addSubCategory', component: AddSubcategoryComponent },
     // { path: 'orders', component: OrdersComponent },
      { path: 'items', component: ItemsAdminComponent },
-    // { path: 'categories', component: CategoriesComponent },
-    // { path: 'subCategories', component: SubcategoriesComponent },
+     { path: 'categories', component: CategoriesComponent },
+     { path: 'subCategories', component: SubcategoriesComponent },
      { path: 'addItem/:itemId', component: AddItemComponent }
     // { path: 'r&p', component: RolesPermissionsComponent }
     ]
