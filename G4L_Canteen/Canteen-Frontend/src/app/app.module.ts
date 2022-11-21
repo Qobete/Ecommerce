@@ -34,6 +34,10 @@ import { FilterParameterPipe } from './Pipes/CustomerPipes/filter-parameter.pipe
 import { FindQuantityPipe } from './Pipes/CustomerPipes/find-quantity.pipe';
 import { SortItemsPipe } from './Pipes/CustomerPipes/sort-items.pipe';
 import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
+import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
+import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
+import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
+
 
 
 @NgModule({
@@ -66,7 +70,10 @@ import { MyAccountComponent } from './Components/customer/my-account/my-account.
     FilterParameterPipe,
     FindQuantityPipe,
     SortItemsPipe,
-    MyAccountComponent
+    MyAccountComponent,
+    CarryBoxComponent,
+    PlaceOrderComponent,
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,

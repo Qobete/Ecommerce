@@ -45,7 +45,7 @@
             <!-- Active Item card design -->
             <div class="itemCard" *ngIf="obj.active">
                 <div class="image">
-                    <img src="assets/Images/{{obj.picture}}">
+                    <img src="assets/images/{{obj.picture}}">
                 </div>
                 <div class="priceTag">
                     R {{obj.itemPrice}}
@@ -84,7 +84,7 @@
             <!-- Inactive Item card design -->
             <div class="itemCard" *ngIf="!obj.active" style="opacity: 0.7; pointer-events: none;">
                 <div class="image">
-                    <img src="assets/Images/{{obj.picture}}">
+                    <img src="assets/images/{{obj.picture}}">
                 </div>
                 <div class="priceTag">
                     R {{obj.itemPrice}}
@@ -119,10 +119,10 @@
             <!-- Active Card Design -->
             <div class="itemCard" *ngIf="obj.active">
                 <div class="image">
-                    <img src="assets/Images/{{obj.picture}}">
+                    <img src="assets/images/{{obj.picture}}">
                 </div>
                 <div class="priceTag">
-                    R {{obj.itemPrice}}
+                    R{{obj.itemPrice}}
                 </div>
                 <div class="info">
                     <div class="left">
@@ -157,7 +157,7 @@
             <!-- Inactive Card Design -->
             <div class="itemCard" *ngIf="!obj.active" style="opacity: 0.7; pointer-events: none;">
                 <div class="image">
-                    <img src="assets/Images/{{obj.picture}}">
+                    <img src="assets/images/{{obj.picture}}">
                 </div>
                 <div class="priceTag">
                     R {{obj.itemPrice}}
@@ -191,7 +191,7 @@
 
         <!-- Total cost of selected items -->
         <div class="info">
-            Items in the Carry Box worth <span class="text-success">R {{carryBox.total_cost}}</span>
+            Items in the Carry Box worth <span class="text-success">R{{carryBox.total_cost}}</span>
         </div>
         <!-- Options -->
         <div class="btns">

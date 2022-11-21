@@ -17,7 +17,9 @@ import { SubcategoriesComponent } from './Components/admin-home/subcategories/su
 import { CategoriesComponent } from './Components/admin-home/categories/categories.component';
 import { ItemsComponent } from './Components/customer/items/items.component';
 import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
-
+import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
+import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
+import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
 
 
 const routes: Routes = [
@@ -25,10 +27,10 @@ const routes: Routes = [
   {
     path: "customer", component: CustomerComponent, children: [{ path: "", component: HomeComponent },
     { path: "items/:type/:filter", component: ItemsComponent },
-    // { path: "myCarryBox", component: CarryBoxComponent },
-    // { path: "myOrders", component: MyOrdersComponent },
-     { path: "myAccount", component: MyAccountComponent },
-    // { path: "placeOrder", component: PlaceOrderComponent },
+    { path: "myCarryBox", component: CarryBoxComponent },
+    { path: "myOrders", component: MyOrdersComponent },
+    { path: "myAccount", component: MyAccountComponent },
+    { path: "placeOrder", component: PlaceOrderComponent },
     // { path: "trackOrder/:orderId", component: TrackOrderComponent },
   
     ]
