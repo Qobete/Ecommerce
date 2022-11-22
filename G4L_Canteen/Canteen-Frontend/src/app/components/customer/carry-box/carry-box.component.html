@@ -32,9 +32,9 @@
 
                     <!-- Design of an active item in the carrybox -->
                     <tr *ngIf="obj.active">
-                        <td><img src="assets/images/{{obj.picture}}"></td>
+                        <td><img src="assets/Images/{{obj.picture}}"></td>
                         <td class="name">{{obj.itemName}}</td>
-                        <td class="price">{{obj.itemPrice}}</td>
+                        <td class="price">{{obj.itemPrice}}/-</td>
                         <td>
                             <div class="editColumn">
                                 <div class="edit" (click)="decreaseQuantity(obj.itemId)">-</div>
@@ -47,9 +47,9 @@
 
                     <!-- Design of an Inactive item in the carrybox -->
                     <tr *ngIf="!obj.active" style="box-shadow: inset 0 0 0 2px red;">
-                        <td style="opacity: 0.7; pointer-events: none;"><img src="assets/images/{{obj.picture}}"></td>
+                        <td style="opacity: 0.7; pointer-events: none;"><img src="assets/Images/{{obj.picture}}"></td>
                         <td style="opacity: 0.7; pointer-events: none;" class="name">{{obj.itemName}}</td>
-                        <td style="opacity: 0.7; pointer-events: none;" class="price">{{obj.itemPrice}}</td>
+                        <td style="opacity: 0.7; pointer-events: none;" class="price">{{obj.itemPrice}}/-</td>
                         <td>
                             <button class="btn btn-dark" (click)="removeCarryBoxItem(obj.itemId)">Remove</button><br>
                             <h6 class="text-danger" style="padding: 5px;">Currently Unavailable!</h6>

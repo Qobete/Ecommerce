@@ -15,7 +15,7 @@
 
         <!-- Bill Amount -->
         <div class="amountRow">
-            <h5 class="text-success">Total Amount to be paid - <span class="bg-success text-light">R{{carryBox.total_cost}}</span></h5>
+            <h5 class="text-success">Total Amount to be paid - <span class="bg-success text-light">R{{carryBox.total_cost}</span></h5>
         </div>
 
 
@@ -189,6 +189,57 @@
             <!-- Choose Payment option design -->
             <div class="payType">
                 <div class="head">Choose a Payment Options</div>
+
+
+                <!-- UPI Payment option -->
+                <div class="row" style="border-top: 1px solid #29150e;" (click)="setPaymentType('upi')">
+                    <div class="left" id="upi">
+                        <span>&#10004;</span>
+                    </div>
+                    <div class="middle">
+                        UPI Payment
+                    </div>
+                    <div class="images">
+                        <img src="assets/Images/upi.png">&nbsp;
+                        <img src="assets/Images/phonePe.png">&nbsp;
+                        <img src="assets/Images/paytm.png">&nbsp;
+                        <img src="assets/Images/GPay.png">&nbsp;&nbsp;
+                    </div>
+                </div>
+
+
+                <!-- Card Payment option -->
+                <div class="row" (click)="setPaymentType('card')">
+                    <div class="left" id="card">
+                        <span>&#10004;</span>
+                    </div>
+                    <div class="middle">
+                        Credit/Debit Card
+                    </div>
+                    <div class="images">
+                        <img src="assets/images/visa.png">&nbsp;
+                        <img src="assets/images/masterCard.png">&nbsp;
+                        <img src="assets/images/rupay.png">&nbsp;&nbsp;
+                    </div>
+                </div>
+
+
+                <!-- Net Banking option -->
+                <div class="row" (click)="setPaymentType('net')">
+                    <div class="left" id="net">
+                        <span>&#10004;</span>
+                    </div>
+                    <div class="middle">
+                        Internet Banking
+                    </div>
+                    <div class="images">
+                        <img src="assets/images/sbi.png">&nbsp;
+                        <img src="assets/images/hdfc.png">&nbsp;
+                        <img src="assets/images/icici.jpg">&nbsp;
+                        <img src="assets/images/citi.jpg">&nbsp;&nbsp;
+                    </div>
+                </div>
+
 
                 <!-- Cash on delivery option -->
                 <div class="row" (click)="setPaymentType('cod')">

@@ -13,6 +13,7 @@ import { LoggingService } from '../../../Models/LoggingService';
   templateUrl: './place-order.component.html',
   styleUrls: ['./place-order.component.css']
 })
+
 export class PlaceOrderComponent implements OnInit {
 
   constructor(private customer: CustomerComponent, private service: CustomerServiceService, private router: Router, private logger: LoggingService, private formBuilder: FormBuilder) { }
@@ -20,7 +21,10 @@ export class PlaceOrderComponent implements OnInit {
   orderSuccess: boolean = true
   addresses: Address[]
   statusMsg: string = ""
-  carryBox: CarryBox
+  carryBox: CarryBox = {totalCost: 0,
+    boxId: 0,
+    customer: null,
+    itemlist:[]}
   selectedAddressId: number = 0
   selectedPaymentType: string = ""
   addNewAddress: boolean = false
@@ -53,10 +57,7 @@ export class PlaceOrderComponent implements OnInit {
       landmark: ['', [Validators.required, Validators.maxLength(30)]],
       mobileNumber: ['', [Validators.required, Validators.pattern('[0][0-9]{9}')]]
     })
-
-
   }
-
 
   // retrieving the carrybox details from the backend
   getCarryBoxDetails() {
@@ -175,7 +176,9 @@ export class PlaceOrderComponent implements OnInit {
 
   // Selecting the payment type
   setPaymentType(type: string) {
-    
+    document.getElementById("upi").className = "left"
+    document.getElementById("card").className = "left"
+    document.getElementById("net").className = "left"
     document.getElementById("cod").className = "left"
 
     document.getElementById(type).className = "selectedType"
@@ -193,7 +196,7 @@ export class PlaceOrderComponent implements OnInit {
 
   // Navigating to items page, when order is cancelled
   goToItems() {
-    //this.router.navigate(['customer/items/category/Biryanis'])
+    this.router.navigate(['customer/items/category/Biryanis'])
     this.logger.logStatus("Navigating to Items Page !!");
   }
 
@@ -246,5 +249,4 @@ export class PlaceOrderComponent implements OnInit {
         this.logger.logStatus("Error while retrieving the branches");
       })
   }
-
 }

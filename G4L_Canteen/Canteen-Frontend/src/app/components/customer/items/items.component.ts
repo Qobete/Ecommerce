@@ -11,12 +11,14 @@ import { FilterItemsPipe } from 'src/app/Pipes/CustomerPipes/filter-items.pipe';
 import { FilterParameterPipe } from 'src/app/Pipes/CustomerPipes/filter-parameter.pipe';
 import { IfStmt } from '@angular/compiler';
 import { SortItemsPipe } from 'src/app/Pipes/CustomerPipes/sort-items.pipe';
+import { User } from 'src/app/Models/User';
 
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
+
 export class ItemsComponent implements OnInit {
 
   branch:string
@@ -29,7 +31,8 @@ export class ItemsComponent implements OnInit {
   filter2:string = ""
   sortBy:string = ""
   categories: SubCategory[]
-  carryBox: CarryBox
+  carryBox: CarryBox 
+    
   filteredItems:Item[]
   filterCarryBoxItems = new FilterCarryBoxItemsPipe()
   filterItems = new FilterItemsPipe()
@@ -240,6 +243,4 @@ export class ItemsComponent implements OnInit {
   login(){
     this.router.navigate(['authenticate'])
   }
-  
 }
-

@@ -11,6 +11,7 @@ import { LoggingService } from '../../../Models/LoggingService';
   templateUrl: './carry-box.component.html',
   styleUrls: ['./carry-box.component.css']
 })
+
 export class CarryBoxComponent implements OnInit {
 
   carryBox: CarryBox
@@ -126,5 +127,4 @@ export class CarryBoxComponent implements OnInit {
     this.router.navigate(['customer'])
     this.logger.logStatus("Navigating to Home Page !!");
   }
-
 }
