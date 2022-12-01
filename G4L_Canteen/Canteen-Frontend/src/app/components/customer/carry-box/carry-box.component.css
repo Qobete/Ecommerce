@@ -1,12 +1,12 @@
-/* Overall body design */
 .content{
     width: 100%;
     min-height: 90vh;
     background-color: white;
-    position: relative;
+    z-index: 60;
+    /* display: flex;
+    justify-content: center; */
 }
 
-/* List of Items in the carrybox */
 .data
 {
     padding-top: 50px;
@@ -48,10 +48,9 @@ td{
     color: #29150e;
 }
 
-
-/* Design of the options to update the quantity of an item
-   or remove an item from the carrybox */
 .editColumn{
+    /* width: 100%; */
+    /* margin-top: 40%; */
     width: 200px;
     font-size: 18px;
     display: flex;
@@ -81,6 +80,7 @@ td{
     font-family: 'Julius Sans One';
     font-weight: bolder;
     color: #29150e;
+    /* border-bottom: 1px solid #29150e; */
 }
 
 .total span{
@@ -88,15 +88,10 @@ td{
     font-family: 'Marcellus';
 }
 
-.homeBtn{
-    position: absolute;
-    left: 10px;
-    top: 10px;
-}
 
 
 
-/* Responsive design for mobile */
+
 @media (max-width:600px){
     .header{
         height: 10vh;
@@ -105,6 +100,7 @@ td{
     .data
     {
         transform: scale(0.95);
+        /* padding-top: 15px; */
     }
     
     .body{
@@ -145,5 +141,4 @@ td{
     .total{
         font-size: 18px;
     }
- 
 }

@@ -36,5 +36,4 @@ export class SortItemsPipe implements PipeTransform {
     }
     return items;
   }
-
 }

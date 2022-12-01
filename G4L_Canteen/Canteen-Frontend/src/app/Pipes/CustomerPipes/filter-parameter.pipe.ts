@@ -16,6 +16,7 @@ export class FilterParameterPipe implements PipeTransform {
     else if(filter2=="active"){
       items=items.filter(e=>e.active==true)
     }
+    
     return items;
   }
 }

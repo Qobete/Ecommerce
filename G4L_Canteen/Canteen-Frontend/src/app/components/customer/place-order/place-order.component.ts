@@ -13,7 +13,6 @@ import { LoggingService } from '../../../Models/LoggingService';
   templateUrl: './place-order.component.html',
   styleUrls: ['./place-order.component.css']
 })
-
 export class PlaceOrderComponent implements OnInit {
 
   constructor(private customer: CustomerComponent, private service: CustomerServiceService, private router: Router, private logger: LoggingService, private formBuilder: FormBuilder) { }
@@ -21,10 +20,7 @@ export class PlaceOrderComponent implements OnInit {
   orderSuccess: boolean = true
   addresses: Address[]
   statusMsg: string = ""
-  carryBox: CarryBox = {totalCost: 0,
-    boxId: 0,
-    customer: null,
-    itemlist:[]}
+  carryBox: CarryBox
   selectedAddressId: number = 0
   selectedPaymentType: string = ""
   addNewAddress: boolean = false
@@ -55,9 +51,12 @@ export class PlaceOrderComponent implements OnInit {
       line2: ['', [Validators.required, Validators.maxLength(30)]],
       city: ['', [Validators.required]],
       landmark: ['', [Validators.required, Validators.maxLength(30)]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('[0][0-9]{9}')]]
+      mobileNumber: ['', [Validators.required, Validators.pattern('[6-9][0-9]{9}')]]
     })
+
+
   }
+
 
   // retrieving the carrybox details from the backend
   getCarryBoxDetails() {
@@ -249,4 +248,5 @@ export class PlaceOrderComponent implements OnInit {
         this.logger.logStatus("Error while retrieving the branches");
       })
   }
+
 }

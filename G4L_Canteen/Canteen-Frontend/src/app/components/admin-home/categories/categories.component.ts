@@ -10,6 +10,7 @@ import { LoggingService } from '../../../Models/LoggingService';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
+
 export class CategoriesComponent implements OnInit {
   categories: Category[]
   child_records_found: boolean = false;

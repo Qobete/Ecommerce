@@ -44,7 +44,7 @@ export class MyAccountComponent implements OnInit {
         line2: ['', [Validators.required,Validators.maxLength(30)]],
         city: ['', [Validators.required]],
         landmark: ['', [Validators.required, Validators.maxLength(30)]],
-        mobileNumber: ['', [Validators.required, Validators.pattern('[0][0-9]{9}')]]
+        mobileNumber: ['', [Validators.required, Validators.pattern('[6-9][0-9]{9}')]]
       })
   
   }
@@ -162,6 +162,7 @@ export class MyAccountComponent implements OnInit {
 
     }
   }
+
 
   // To retrieve all the branches
   getAllBranches() {

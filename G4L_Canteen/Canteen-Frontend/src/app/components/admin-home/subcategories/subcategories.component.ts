@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SubCategory } from '../../../Models/subCategory';
-import { AdminServiceService } from '../../../Services/admin-service/admin-service.service';
+import { SubCategory } from 'src/app/Models/subCategory';
+import { AdminServiceService } from 'src/app/Services/admin-service/admin-service.service';
 import { Router } from '@angular/router';
 import { LoggingService } from '../../../Models/LoggingService';
 
@@ -21,6 +21,7 @@ export class SubcategoriesComponent implements OnInit {
   added:boolean=false
   submitted:boolean=false
   subCategory_name_already_exists:boolean=false
+  selectedCategory: boolean = false
 
   
     //Injecting required services
@@ -104,8 +105,6 @@ export class SubcategoriesComponent implements OnInit {
       }
       },err=>{
 
-    
        })
-    
   }
 }

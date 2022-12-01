@@ -8,7 +8,8 @@ import { LoggingService } from '../../../Models/LoggingService';
 
 @Component({
   selector: 'app-carry-box',
-  templateUrl: './carry-box.component.html',
+  // templateUrl: './carry-box.component.html',
+  templateUrl: 'carry-box.component.html',
   styleUrls: ['./carry-box.component.css']
 })
 

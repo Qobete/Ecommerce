@@ -1,11 +1,11 @@
+
 *{
     padding:0;
     margin:0;
 }
 
-/* Overall Body Design */
 .content{
-    height: 85vh;
+    height: 90vh;
     width: 100%;
     background-color: whitesmoke;
     position: relative;
@@ -22,10 +22,15 @@
     scrollbar-width: none;  /* Firefox */
   }
 
+/* .header{
+    width: 100%;
+    height: 10vh;
+    background-color: #29150e;
+    box-shadow: 0px 2px 5px 0 lightgrey;
+} */
 
-/* Design of selected category */
 .headRow{
-    height: 15vh;
+    height: 17.5vh;
     width: 100%;
     color: #29150e;
     display: flex;
@@ -37,8 +42,6 @@
     text-align: center;
 }
 
-
-/* To filter items of a new category */
 select{
     border-radius: 5px;
     font-size: 20px;
@@ -94,7 +97,6 @@ select:focus{
         text-shadow: 1px 0 2px rgba(45, 21, 14,0.6);
     }
 }
-
 .headRow .heading span{
     width: 0;
     height: 2px;
@@ -119,9 +121,6 @@ select:focus{
     }
 }
 
-
-
-/* Carry box options design visible when some items are in carrybox */
 .carryBox{
     position: absolute;
     bottom: 0;
@@ -157,6 +156,7 @@ select:focus{
     background-color: white;
     padding: 5px;
     font-weight: 600;
+    /* text-decoration: underline; */
 }
 
 .carryBox .btns{
@@ -185,8 +185,6 @@ select:focus{
     text-decoration: underline;
 }
 
-
-/* List of Items design */
 .items{
     width: 100%;
     height: 60vh;
@@ -204,25 +202,33 @@ select:focus{
         transform: translateX(150%);
         opacity: 0;
     }
+    /* 90%{
+        transform: translateX(-5%) ;
+    }
+    95%{
+        transform: translateX(2.5%) ;
+    } */
     100%{
         transform: translateX(0) ;
         opacity: 1;
     }
 }
 
-
-
-/* Individual Item card design */
 .itemCard{
     height: 90%;
+    /* width: 22%;
+    min-width: 22%; */
     width: 290px;
     min-width: 290px;
+    /* margin-left: 1.5% 0; */
     margin: 0 22px;
     border: 1px solid #29150e;
     position: relative;
     overflow: hidden;
     transition: 0.5s ease all;
     animation: slide-left 2s ease;
+    /* -webkit-box-reflect: below 0px linear-gradient(transparent 85%,whitesmoke); */
+    /* box-shadow: 1px 1px 3px 0 #58423b; */
 }
 
 .itemCard .image{
@@ -253,6 +259,8 @@ select:focus{
 }
 
 .itemCard .info .left span{
+    /* flex: 70%; */
+    /* text-align: center; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,7 +282,6 @@ select:focus{
     font-size: 16px;
     font-family: ubuntu;
 }
-
 .itemCard .info .left h1{
     font-size: 25px;
     color: #29150e;
@@ -306,11 +313,10 @@ select:focus{
 
 .itemCard:hover{
     transform: scale(1.05);
+    /* border: 2px solid #29150e; */
     box-shadow: 0 0 15px 2px rgba(45, 21, 14,0.75);
 }
 
-
-/* Add item to carry box option and edit or remove option */
 .itemCard .addColumn, .itemCard .editColumn{
     position: absolute;
     bottom: 0;
@@ -355,7 +361,7 @@ select:focus{
 
 
 
-/* Responsive design for Ipad, Tab */
+
 @media (max-width: 800px) and (min-width:700px) and (min-height:1000px){
     .itemCard{
         width: 475px;
@@ -364,7 +370,7 @@ select:focus{
     }
 }
 
-/* Resposive design fro Laptops */
+
 @media (max-width:1000px){
     .carryBox .info{
         flex: 60%;
@@ -375,7 +381,7 @@ select:focus{
 }
 
 
-/* Resposive design for Tab */
+
 @media (max-width:800px){
     .carryBox .info{
         flex: 50%;
@@ -389,8 +395,6 @@ select:focus{
     }   
 }
 
-
-/* Resposive design fro Mobiles */
 @media (max-width:600px){
 
     .itemCard{
@@ -451,9 +455,6 @@ select:focus{
 
     .headRow .filterOptions{
         flex: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
     }
 
     .headRow .heading{

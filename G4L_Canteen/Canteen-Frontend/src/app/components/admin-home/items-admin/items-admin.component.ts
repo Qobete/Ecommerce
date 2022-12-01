@@ -62,8 +62,8 @@ export class ItemsAdminComponent implements OnInit {
         
           this.logger.logStatus("Got all the items successfully");
           this.items=data
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+          // this.base64Data = this.retrieveResonse.picByte;
+          // this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
                 }
       )
              

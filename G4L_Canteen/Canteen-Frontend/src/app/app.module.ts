@@ -23,21 +23,20 @@ import { MergeArrayPipe } from './Pipes/AdminPipes/merge-array.pipe';
 import { SearchItemsPipe } from './Pipes/AdminPipes/search-items.pipe';
 import { SubcategoriesComponent } from './Components/admin-home/subcategories/subcategories.component';
 import { SearchSubCategoryPipe } from './Pipes/AdminPipes/search-sub-category.pipe';
-import { SearchCategoryPipe } from './Pipes/AdminPipes/search-category.pipe';
-import { FilterCategoriesPipe } from './Pipes/AdminPipes/filter-categories.pipe';
 import { CategoriesComponent } from './Components/admin-home/categories/categories.component';
+import { SearchCategoryPipe } from './Pipes/AdminPipes/search-category.pipe';
+import { RolesPermissionsComponent } from './Components/admin-home/roles-permissions/roles-permissions.component';
+import { OrdersComponent } from './Components/admin-home/orders/orders.component';
 import { ItemsComponent } from './Components/customer/items/items.component';
 import { FilterCarryBoxItemsPipe } from './Pipes/CustomerPipes/filter-carry-box-items.pipe';
 import { FilterItemsPipe } from './Pipes/CustomerPipes/filter-items.pipe';
-import { FilterOrdersPipe } from './Pipes/CustomerPipes/filter-orders.pipe';
 import { FilterParameterPipe } from './Pipes/CustomerPipes/filter-parameter.pipe';
-import { FindQuantityPipe } from './Pipes/CustomerPipes/find-quantity.pipe';
 import { SortItemsPipe } from './Pipes/CustomerPipes/sort-items.pipe';
-import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
 import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
-
+import { TrackOrderComponent } from './Components/customer/track-order/track-order.component';
 
 
 @NgModule({
@@ -60,20 +59,20 @@ import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.com
     SearchItemsPipe,
     SubcategoriesComponent,
     SearchSubCategoryPipe,
-    SearchCategoryPipe,
-    FilterCategoriesPipe,
     CategoriesComponent,
+    SearchCategoryPipe,
+    RolesPermissionsComponent,
+    OrdersComponent,
     ItemsComponent,
     FilterCarryBoxItemsPipe,
     FilterItemsPipe,
-    FilterOrdersPipe,
     FilterParameterPipe,
-    FindQuantityPipe,
     SortItemsPipe,
-    MyAccountComponent,
     CarryBoxComponent,
     PlaceOrderComponent,
+    MyAccountComponent,
     MyOrdersComponent,
+    TrackOrderComponent
   ],
   imports: [
     BrowserModule,

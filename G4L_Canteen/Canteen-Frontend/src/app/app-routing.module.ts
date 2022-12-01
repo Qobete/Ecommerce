@@ -15,23 +15,27 @@ import { AddItemComponent } from './Components/admin-home/add-item/add-item.comp
 import { ItemsAdminComponent } from './Components/admin-home/items-admin/items-admin.component';
 import { SubcategoriesComponent } from './Components/admin-home/subcategories/subcategories.component';
 import { CategoriesComponent } from './Components/admin-home/categories/categories.component';
+import { RolesPermissionsComponent } from './Components/admin-home/roles-permissions/roles-permissions.component';
+import { OrdersComponent } from './Components/admin-home/orders/orders.component';
 import { ItemsComponent } from './Components/customer/items/items.component';
-import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
 import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
+import { TrackOrderComponent } from './Components/customer/track-order/track-order.component';
 
 
 const routes: Routes = [
   { path: "", component: CustomerComponent },
   {
-    path: "customer", component: CustomerComponent, children: [{ path: "", component: HomeComponent },
+    path: "customer", component: CustomerComponent, 
+    children: [{ path: "", component: HomeComponent },
     { path: "items/:type/:filter", component: ItemsComponent },
     { path: "myCarryBox", component: CarryBoxComponent },
+    { path: "placeOrder", component: PlaceOrderComponent },
     { path: "myOrders", component: MyOrdersComponent },
     { path: "myAccount", component: MyAccountComponent },
-    { path: "placeOrder", component: PlaceOrderComponent },
-    // { path: "trackOrder/:orderId", component: TrackOrderComponent },
+    { path: "trackOrder/:orderId", component: TrackOrderComponent }
   
     ]
   },
@@ -50,16 +54,15 @@ const routes: Routes = [
     path: 'admin', component: AdminHomeComponent,
     children: [{ path: 'dashboard', component: DashboardComponent },
     { path: '', component: DashboardComponent },
-    // { path: 'orders', component: OrdersComponent },
     { path: 'addItem', component: AddItemComponent },
     { path: 'addCategory', component: AddCategoryComponent },
     { path: 'addSubCategory', component: AddSubcategoryComponent },
-    // { path: 'orders', component: OrdersComponent },
-     { path: 'items', component: ItemsAdminComponent },
-     { path: 'categories', component: CategoriesComponent },
-     { path: 'subCategories', component: SubcategoriesComponent },
-     { path: 'addItem/:itemId', component: AddItemComponent }
-    // { path: 'r&p', component: RolesPermissionsComponent }
+    { path: 'orders', component: OrdersComponent },
+    { path: 'items', component: ItemsAdminComponent },
+    { path: 'categories', component: CategoriesComponent },
+    { path: 'subCategories', component: SubcategoriesComponent },
+    { path: 'addItem/:itemId', component: AddItemComponent },
+    { path: 'r&p', component: RolesPermissionsComponent }
     ]
   },
 ]

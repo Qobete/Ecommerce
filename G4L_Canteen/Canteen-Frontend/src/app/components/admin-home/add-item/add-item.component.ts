@@ -114,15 +114,6 @@ export class AddItemComponent implements OnInit {
 
   }
 
-  // handleFileInput(file: FileList) {
-  //   this.selectedFile = file.item(0);
-  //   var reader = new FileReader();
-  //   reader.onload = (event: any) => {
-  //     this.imgURL = event.target.result;
-  //   }
-  //   reader.readAsDataURL(this.selectedFile);
-  // }
-
 
   //function to get all the subcategories
   getSubCategories() {
@@ -148,88 +139,34 @@ export class AddItemComponent implements OnInit {
     })
   }
 
-  //function to add a new item
-  addItem() {
+ //function to add a new item
+ addItem() {
+  this.item_name_already_exists=false
+  this.submitted = true
 
-
-    this.item_name_already_exists=false
-    this.submitted = true
-
-    //return if the form is invalid
-    // if (this.addItemForm.invalid) {
-    //   return;
-    // }
-
-    // else {
-      this.item_name_already_exists=false
-
-    //If there is no book id then it is an add book call else it is an edit book call
-    // if (this.item.itemId == null) {
-      const uploadData = new FormData();
-      uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
-      this.selectedFile.imageName = this.selectedFile.name;
-
-      this.httpClient.post('http://localhost:8094/admin/upload', uploadData, {observe: 'response'})
-        .subscribe((response) => {
-
-          console.log(response);
-          this.receivedImagedata = response;
-          this.base64Data = this.receivedImagedata.pic;
-          this.convertedImage = 'data:image/jpeg;base64,' + this.base64Data;
-
-            if (response.status == 200) {
-              this.adminService.addItem(localStorage.email, this.selectedSubCatgeory, this.addItemForm.value).subscribe(
-                (item) => {
-                  this.logger.logStatus("Added item successfully");
-                  this.addedItem = true
-                }
-              );
-            
-              console.log('Image uploaded successfully');
-            
-            } else {
-              console.log('Image not uploaded successfully');
-            }
-          }
-        );
-    // } else {
-    //   this.adminService.editItem(this.item).subscribe(
-    //     (item) => {
-    //       this.itemAddedEvent.emit();
-    //       this.router.navigate(['admin', 'items']);
-    //     }
-    //   );
-    // }
-
-
-
-    // this.item_name_already_exists=false
-    // this.submitted = true
-
-    // //return if the form is invalid
-    // if (this.addItemForm.invalid) {
-    //   return;
-    // }
-
-    // else {
-    //   this.item_name_already_exists=false
-
-      
-    //   //calling service to add a new item
-    //   this.adminService.addItem(localStorage.email, this.selectedSubCatgeory, this.addItemForm.value).subscribe(
-    //     data => {
-    //       this.logger.logStatus("Added item successfully");
-    //       this.addedItem = true
-    //     }, err => {
-    //       if(err.error.errorMessage=="Item name already exists exception")
-    //       {
-    //           this.item_name_already_exists=true
-    //       }
-    //     } )
-    // }
-
+  //return if the form is invalid
+  if (this.addItemForm.invalid) {
+    return;
   }
 
+  else {
+    this.item_name_already_exists=false
+
+    
+    //calling service to add a new item
+    this.adminService.addItem(localStorage.email, this.selectedSubCatgeory, this.addItemForm.value).subscribe(
+      data => {
+        this.logger.logStatus("Added item successfully");
+        this.addedItem = true
+      }, err => {
+        if(err.error.errorMessage=="Item name already exists exception")
+        {
+            this.item_name_already_exists=true
+        }
+      } )
+  }
+
+}
 
   //function to edit a item
   editItem() {

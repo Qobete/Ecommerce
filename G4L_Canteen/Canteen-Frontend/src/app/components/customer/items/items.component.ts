@@ -18,7 +18,6 @@ import { User } from 'src/app/Models/User';
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.css']
 })
-
 export class ItemsComponent implements OnInit {
 
   branch:string
@@ -32,12 +31,12 @@ export class ItemsComponent implements OnInit {
   sortBy:string = ""
   categories: SubCategory[]
   carryBox: CarryBox 
-    
   filteredItems:Item[]
   filterCarryBoxItems = new FilterCarryBoxItemsPipe()
   filterItems = new FilterItemsPipe()
   filterByParameter = new FilterParameterPipe()
   sortItems = new SortItemsPipe()
+  
 
   constructor(private service: CustomerServiceService, private route: ActivatedRoute, private router: Router, private customer: CustomerComponent, private logger:LoggingService) {
   }

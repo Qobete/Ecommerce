@@ -24,6 +24,7 @@ import com.geekscanteen.Backend.repository.UserRepository;
 
 @Repository
 @Transactional
+
 public class AdminDaoImpl implements AdminDao {
 
 	@Autowired
