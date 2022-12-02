@@ -22,7 +22,7 @@ public class G4LCanteenApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(G4LCanteenApplication.class, args);
-		System.out.println("Gooooooooooooooood");
+		System.out.println("Goooooooooood");
 	}
 	
 	 @Override

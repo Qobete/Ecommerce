@@ -1,87 +1,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<!-- Poster1 Design -->
-<div class="content" *ngIf="poster1" id="poster1">
-
-    <!-- Poster1 Image Design -->
-    <div class="right">
-        <div class="right-data">
-            <div class="image">
-                <span class="screen"></span>
-                <img src="assets/images/poster1.png">
-            </div>
-        </div>
-    </div>
-    <div class="divider"><span></span></div>
-
-    <!-- Poster1 Info Design -->
-    <div class="left">
-        <span class="screen" style="left: 0;right: auto;"></span>
-        <div class="info">
-            <p>We Serve You</p>
-            <h1>TASTE</h1>
-            <button class="orderBtn" (click)="goToItems()">Order Now</button>
-        </div>
-    </div>
-</div>
-
-
-<!-- Poster2 Design -->
-<div class="content" *ngIf="poster2" id="poster2">
-
-    <!-- Poster2 Info Design -->
-    <div class="left">
-        <span class="screen"></span>
-        <div class="info">
-            <p>We Serve You</p>
-            <h1>BEST</h1>
-            <button class="orderBtn" (click)="goToItems()"><span></span>Order Now</button>
-        </div>
-    </div>
-    <div class="divider"><span></span></div>
-
-    <!-- Poster2 Image Design -->
-    <div class="right">
-        <div class="right-data">
-            <div class="image2">
-                <img src="assets/images/poster2.jpg">
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Poster3 Design -->
-<div class="content" *ngIf="poster3" id="poster3">
-
-    <!-- Poster3 Info Design -->
-    <div class="left">
-        <span class="screen"></span>
-        <div class="info">
-            <p>We Serve You</p>
-            <h1 style="animation-delay: 10s;">FRESH</h1>
-            <button class="orderBtn" (click)="goToItems()"><span></span>Order Now</button>
-        </div>
-    </div>
-    <div class="divider"><span></span></div>
-
-    <!-- Poster3 Images Designs -->
-    <div class="right">
-        <div class="vegImg">
-            <span class="screen" style="opacity: 0.1;z-index: 8;"></span>
-            <img src="assets/images/poster3-1.jpg" id="vegImg">
-        </div>
-        <div class="chknImg">
-            <span class="screen" style="opacity: 0.1;z-index: 8;"></span>
-            <img src="assets/images/poster3-2.jpg" id="chknImg">
-        </div>
-        <div class="fishImg">
-            <span class="screen" style="opacity: 0.1;z-index: 8;"></span>
-            <img src="assets/images/poster3-3.webp" id="fishImg">
-        </div>
-    </div>
-</div>
+	<div class="wrapper">
+        <div style="background-image:url(assets/images/G4L.png)"></div>
+        <div style="background-image:url(assets/images/poster2.jpg)"></div>
+        <div style="background-image:url(assets/images/poster3-1.jpg)"></div>
+        <div style="background-image:url(assets/images/poster3-2.jpg)"></div>
+        <div style="background-image:url(assets/images/poster3-3.webp)"></div>
+        <p>We Serve You</p>
+        <h1>BEST</h1>
+        <button class="orderBtn" (click)="goToItems()"><span></span>Order Now</button>
+	  
+	</div>
 
 
 <!-- content2-Process Design -->

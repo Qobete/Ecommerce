@@ -152,7 +152,7 @@ export class CustomerServiceService {
 	   * @return number: orderId is returned
 	  */
 	placeOrder(emailId: string, branchId: number, addressId: number) {
-		return this.http.post<boolean>("http://localhost:8094/customer/placeANewOrder/" + emailId + "/" + branchId + "/" + addressId, "");
+		 return this.http.post<boolean>("http://localhost:8094/customer/placeANewOrder/" + emailId + "/" + branchId + "/" + addressId, "");
 	}
 
 

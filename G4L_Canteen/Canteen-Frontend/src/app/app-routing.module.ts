@@ -20,10 +20,9 @@ import { OrdersComponent } from './Components/admin-home/orders/orders.component
 import { ItemsComponent } from './Components/customer/items/items.component';
 import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
 import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
-import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { TrackOrderComponent } from './Components/customer/track-order/track-order.component';
-
 
 const routes: Routes = [
   { path: "", component: CustomerComponent },
@@ -68,9 +67,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: 
-   [RouterModule.forRoot(routes)],
-
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

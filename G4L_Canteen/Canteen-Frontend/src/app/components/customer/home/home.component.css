@@ -1,207 +1,7 @@
-/* Overall Body Design */
-.content{
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    opacity: 1;
-    transition: 1s ease-in-out all;
-}
-
-
-/* Posters Designs */
-
-.content .left{
-    height: 100%;
-    flex: 50%;
-    display: flex;
-    position: relative;
-}
-
-.content .right{
-    height: 100%;
-    flex: 45%;
-    display: flex;
-    position: relative;
-}
-
-.content .left{
-    align-items: center;
-    justify-content: center;
-}
-
-.content .left .screen{
-    opacity: 0;
-    animation: slideToLeft 1.5s ease-in-out;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes slideToLeft{
-    0%{
-        opacity: 0.1;
-        width: 0%;
-    }
-    100%{
-        opacity: 0.1;
-        width: 100%;
-    }
-}
-
-.content .right{
-    overflow: hidden;
-}
-
-.content .left div{
-    text-align: center;
-    line-height: 0.5;
-    font-family: 'Julius Sans One';
-    color: #29150e;
-    animation: fadeIn 2s ease;
-    opacity: 0;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn{
-    0%{
-        opacity: 0;
-    }
-    50%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-
-.content .left h1{
-    font-size: 125px;
-    text-shadow: 1px 0 3px rgba(45, 21, 14, 0.8);
-    animation: stretch 1.5s ease;
-    animation-delay: 7s;
-}
-
-/* Key Word animation */
-@keyframes stretch{
-    0%{
-        transform: scaleX(1) scaleY(1);
-        text-shadow: 1px 0 3px rgba(45, 21, 14, 0.8);
-    }
-    45%{
-        transform: scaleX(1.4) scaleY(1.05);
-        text-shadow: 0px 0 45px rgba(45, 21, 14, 1);
-    }
-    55%{
-        transform: scaleX(1.4) scaleY(1.05);
-        text-shadow: 0px 0 45px rgba(45, 21, 14, 1);
-    }
-    100%{
-        text-shadow: 1px 0 3px rgba(45, 21, 14, 0.8);
-        transform: scaleX(1) scaleY(1);
-    }
-}
-
-.content .left p{
-    font-size: 50px;
-}
-
-
-/* Background screen layer */
-.screen{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #29150e;
-    background-blend-mode: screen;
-    opacity: 0.1;
-    z-index: 0;
-}
-
-
-/* Divider between info and image */
-.content .divider{
-    flex: 5%;
-    height: 100%;
-    position: relative;
-}
-
-.content .divider span{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #29150e;
-    background-blend-mode: normal;
-    opacity: 0.3;
-    animation: divider 2s ease;
-}
-
-/* Divider animation */
-@keyframes divider{
-    0%{
-        height: 0%;
-    }
-    100%{
-        height: 100%;
-    }
-}
-
-
-/* Poster Image Design */
-.content .right .img{
-    flex: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.content .right .image{
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 100%;
-    animation: slideToRight 4s linear;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-
-}
-
-.content .right img{
-    height: 100%;
-    width: 100%;
-    z-index: -5;
-}
-
-/* Poster1 Image Animation */
-@keyframes slideToRight{
-    0%{
-        transform: skewX(25deg);
-        left: -250%;
-        opacity: 0;
-    }
-    50%{
-        transform: skewX(25deg);
-    }
-    90%{
-        transform: skewX(10deg);
-        left: 0;
-        opacity: 1;
-    }
-    95%{
-        transform: skewX(-10deg);
-    }
-    100%{
-        transform: skewX(0deg);
-        left: 0;
-    }
-}
-
 
 /* Order Button in the poster */
 .orderBtn{
     z-index: 3;
-    margin-top: 50px;
     padding: 15px;
     font-size: 18px;
     color: white;
@@ -210,118 +10,14 @@
     font-weight: bold;
     position: relative;
     border-radius: 100px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
 }
 
 .orderBtn:hover{
     transition: 0.6s ease;
     box-shadow: 0 0 15px 1px rgba(45, 21, 14, 0.8);
-}
-
-
-/* Poster2 Image Design */
-.content .right .image2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 0;
-    width: 0;
-    animation: openType 2s ease-in-out;
-    animation-delay: 2.5s;
-    animation-fill-mode: forwards;
-    overflow: hidden;
-}
-
-
-/* Poster2 Image Animation */
-@keyframes openType{
-    0%{
-        left: 50%;
-        top: 48%;
-        width: 5%;
-        height: 0.1%;
-        background-color: #29150e;
-        opacity: 0;
-        box-shadow: 0 0 50px 10px rgba(45, 21, 14, 0.8);
-    }
-    35%{
-        height: 0.5%;
-        top: 48%;
-        background-color: #29150e;
-        border-radius: 0;
-        box-shadow: 0 0 100px 10px rgba(45, 21, 14, 0.8);
-        left: 10%;
-        width: 80%;
-    }
-    36%{
-      border-radius: 50%;
-    }
-    85%{
-        top: 10%;
-        left: 10%;
-        border-radius: 0;
-        height: 80%;
-        width: 80%;
-        opacity: 1;
-        box-shadow: 0 0 100px 10px rgba(45, 21, 14, 0.8); 
-    }
-    100%{
-        width: 100%;
-        left: 0;
-        top: 0;
-        opacity: 1;
-        border-radius: 0;
-        height: 100%;
-        box-shadow: 0 0 0 0;
-    }
-}
-
-
-/* Poster3 Images Designs */
-.chknImg{
-    width: 100%;
-    height: 99%;
-    margin-top: 0.5%;
-    z-index: 2;
-    right: -100%;
-    position: absolute;
-    animation: rightToLeft 1s ease-in;
-    animation-delay: 5s;
-    animation-fill-mode: forwards;
-}
-
-.fishImg{
-    z-index: 4;
-    width: 100%;
-    height: 99%;
-    margin-top: 0.5%;
-    right: -100%;
-    position: absolute;
-    animation: rightToLeft 1s ease-in;
-    animation-delay: 9s;
-    animation-fill-mode: forwards;
-}
-
-.vegImg{
-    z-index: 0;
-    width: 100%;
-    height: 99%;
-    margin-top: 0.5%;
-    right: -100%;
-    position: absolute;
-    transform: rotateY(180deg);
-    animation: rightToLeft 1s ease-in;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-}
-
-/* Poster3 Images Animations */
-@keyframes rightToLeft{
-    0%{
-        right: -100%;
-    }
-    100%{
-        right: 0;
-    }
 }
 
 
@@ -498,52 +194,11 @@
 }
 
 
-#poster2 .left{
-    flex: 40%;
-}
-
-#poster2 .right{
-    flex: 55%;
-}
-
-#poster3 .left{
-    flex: 45%;
-}
-
-#poster3 .divider{
-    flex: 5%;
-}
-
-#poster3 .right{
-    flex: 50%;
-}
-
-
 /* Responsive design for Ipad, Tab */
 @media (max-width:800px){
 
     .content{
         flex-wrap: wrap-reverse;
-    }
-
-    #poster1{
-        flex-wrap: wrap;
-    }
-
-    #poster1 .right, #poster2 .right, #poster3 .right{
-        flex: 100%;
-        height: 40vh;
-    }
-
-    #poster1 .divider, #poster2 .divider, #poster3 .divider{
-        flex: 10%;
-        height: 40vh;
-    }
-
-
-    #poster1 .left, #poster2 .left, #poster3 .left{
-        flex: 90%;
-        height: 40vh;
     }
 
     .content2{
@@ -662,4 +317,52 @@
         font-size: 18px;
     }
     
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+.wrapper {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	background-color: #000;
+}
+.wrapper>div {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	animation: animate 25s infinite;
+	opacity: 0;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+.wrapper>div:nth-child(2) {
+	animation-delay: 5s;
+}
+.wrapper>div:nth-child(3) {
+	animation-delay: 10s;
+}
+.wrapper>div:nth-child(4) {
+	animation-delay: 15s;
+}
+.wrapper>div:nth-child(5) {
+	animation-delay: 20s;
+}
+@keyframes animate {
+	10% {
+		opacity: 1;
+	}
+	20% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 0;
+	}
+	40% {
+		transform: scale(1.2);
+	}
 }

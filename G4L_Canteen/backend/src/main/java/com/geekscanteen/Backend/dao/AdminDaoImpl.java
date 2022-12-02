@@ -24,7 +24,6 @@ import com.geekscanteen.Backend.repository.UserRepository;
 
 @Repository
 @Transactional
-
 public class AdminDaoImpl implements AdminDao {
 
 	@Autowired
@@ -90,31 +89,31 @@ public class AdminDaoImpl implements AdminDao {
 	
 	@Override
 	public User getUserDetails(String userName) {
-		return userRepository.getReferenceById(userName);
+		return userRepository.getOne(userName);
 	
 	}
 	@Override
 	public SubCategory getSubCategory(int subCategory) {
-		return subCategoryRepository.getReferenceById(subCategory);
+		return subCategoryRepository.getOne(subCategory);
 	
 	}
 	@Override
 	public Category getCategory(int category) {
-		return categoryRepository.getReferenceById(category);
+		return categoryRepository.getOne(category);
 	}
 	@Override
 	public Item getItem(int itemId) {
-		return itemRepository.getReferenceById(itemId);
+		return itemRepository.getOne(itemId);
 	}
 	@Override
 	public Branch getBranch(int branchId) {
-		return branchRepository.getReferenceById(branchId);
+		return branchRepository.getOne(branchId);
 	}
 	@Override
 	public void addItem(String user_name, Item item) {
 		itemRepository.save(item);
-}
 		
+	}
 	@Override
 	public List<Order> getOrders(int orderId)
 	{
@@ -136,7 +135,7 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public void editCategory(String adminId, Category category) {
-		User user = userRepository.getReferenceById(adminId) ;
+		User user = userRepository.getOne(adminId) ;
 		category.setBranch(user.getBranch());
 		categoryRepository.save(category);
 		
@@ -156,7 +155,7 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public void deleteCategory(int categoryId) {
 		System.err.println("dao");
-		Category category = categoryRepository.getReferenceById(categoryId);
+		Category category = categoryRepository.getOne(categoryId);
 		if(category.getSubCategories().size()==0) {
 		    categoryRepository.delete(category);
 			
@@ -164,11 +163,13 @@ public class AdminDaoImpl implements AdminDao {
 		else {
 			throw new ChildRecordsFoundException("child records found");
 		}
+
+		
 	}
 
 	@Override
 	public void deleteSubCategory(int subCategoryId ) {
-		SubCategory subCategory = subCategoryRepository.getReferenceById(subCategoryId);
+		SubCategory subCategory = subCategoryRepository.getOne(subCategoryId);
 		if( subCategory.getItems().size()==0) {
 			subCategoryRepository.delete(subCategory);
 		}
@@ -180,7 +181,7 @@ public class AdminDaoImpl implements AdminDao {
 	
 	@Override
 	public void deleteItem(int itemId ) {
-		Item item = itemRepository.getReferenceById(itemId);
+		Item item = itemRepository.getOne(itemId);
 
 		itemRepository.delete(item);
 	
@@ -194,7 +195,8 @@ public class AdminDaoImpl implements AdminDao {
 		return sub_categories;
 	
 	}
-  
+
+    
 	@Override
 	public List<Category> getCategories(String username) {
 		

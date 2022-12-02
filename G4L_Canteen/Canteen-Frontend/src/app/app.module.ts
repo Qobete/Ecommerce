@@ -34,8 +34,11 @@ import { FilterParameterPipe } from './Pipes/CustomerPipes/filter-parameter.pipe
 import { SortItemsPipe } from './Pipes/CustomerPipes/sort-items.pipe';
 import { CarryBoxComponent } from './Components/customer/carry-box/carry-box.component';
 import { PlaceOrderComponent } from './Components/customer/place-order/place-order.component';
-import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { MyOrdersComponent } from './Components/customer/my-orders/my-orders.component';
+import { FilterOrdersPipe } from './Pipes/CustomerPipes/filter-orders.pipe';
+import { FindQuantityPipe } from './Pipes/CustomerPipes/find-quantity.pipe';
+import { FilterCategoriesPipe } from './Pipes/AdminPipes/filter-categories.pipe';
+import { MyAccountComponent } from './Components/customer/my-account/my-account.component';
 import { TrackOrderComponent } from './Components/customer/track-order/track-order.component';
 
 
@@ -70,8 +73,11 @@ import { TrackOrderComponent } from './Components/customer/track-order/track-ord
     SortItemsPipe,
     CarryBoxComponent,
     PlaceOrderComponent,
-    MyAccountComponent,
     MyOrdersComponent,
+    FilterOrdersPipe,
+    FindQuantityPipe,
+    FilterCategoriesPipe,
+    MyAccountComponent,
     TrackOrderComponent
   ],
   imports: [

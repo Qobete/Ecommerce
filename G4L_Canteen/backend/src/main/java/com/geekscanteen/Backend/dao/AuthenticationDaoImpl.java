@@ -48,7 +48,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 		logger.trace("Login method is accessed");
 		
 		try {
-			User user=userRepository.getReferenceById(emailId);
+			User user=userRepository.getOne(emailId);
 			if(user==null) {
 				logger.error("InvalidLoginCredentialsException thrown by the method");
 				throw new InvalidLoginCredentialsException("User does not exist");
@@ -101,14 +101,15 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 		}
 
 		else {
+
 			carryBox.setBoxId(carryBoxId+1);
 		}
 		carryBoxRepository.save(carryBox);
 		user.setCarryBox(carryBox);
 		userRepository.save(user);
 		if(address!=null) {
-		User user1=userRepository.getReferenceById(user.getEmailId());
-		Address address1=addressRepository.getReferenceById(address.getAddressId());
+		User user1=userRepository.getOne(user.getEmailId());
+		Address address1=addressRepository.getOne(address.getAddressId());
 		user1.addAddress(address1);
 		userRepository.save(user1);
 		}
@@ -136,7 +137,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 		List<String> emails=new ArrayList<>();
 		emails=userRepository.getEmailIdList();
 		if(emails.contains(emailId)){
-			User user=userRepository.getReferenceById(emailId);
+			User user=userRepository.getOne(emailId);
 			if(user.getSecurity_question().equals(security_question) && user.getSecurity_answer().equals(security_answer)) {
 				logger.info("User verified");
 				return "User";
@@ -156,7 +157,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 	@Override
 	public String changePassword(String emailId,String newPassword, String reEnterNewPassword) {
 		logger.trace("Change Password method accessed");
-		User user=userRepository.getReferenceById(emailId);
+		User user=userRepository.getOne(emailId);
 		if(newPassword.equals(reEnterNewPassword)) {
 			user.setPassword(newPassword);
 			userRepository.save(user);
@@ -171,7 +172,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 	public List<List<Order>> getOrderList(String emailId) {
 		logger.trace("Get Order List method accessed");
 		List<Order> order=new ArrayList<>();
-		User user=userRepository.getReferenceById(emailId);
+		User user=userRepository.getOne(emailId);
 		if(user.getRole().equals("Admin")) {
 			Branch branch=user.getBranch();
 			Iterator<Order> iterator=branch.getOrders().iterator();
@@ -206,7 +207,7 @@ public class AuthenticationDaoImpl implements AuthenticationDao{
 	public List<List<Order>> getActiveOrderList(String emailId) {
 		logger.trace("Get Active Order List method accessed");
 		List<Order> order=new ArrayList<>();
-		User user=userRepository.getReferenceById(emailId);
+		User user=userRepository.getOne(emailId);
 		if(user.getRole().equals("Admin")) {
 			Branch branch=user.getBranch();
 			Iterator<Order> iterator=branch.getOrders().iterator();

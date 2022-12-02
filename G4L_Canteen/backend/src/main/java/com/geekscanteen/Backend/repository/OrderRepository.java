@@ -20,7 +20,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer>{
 	public int getMaxOfOrderId();
 
 	
-	
 	@Query("SELECT o from Order o where o.orderId=:orderId")
 	public List<Order> trackAnOrder(@Param("orderId") int orderId);
 	

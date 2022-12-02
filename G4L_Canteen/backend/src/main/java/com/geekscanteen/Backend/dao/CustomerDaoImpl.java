@@ -84,27 +84,27 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
     public Branch getABranchDetails(int branchId){
-		return branchRepository.getReferenceById(branchId);
+		return branchRepository.getOne(branchId);
 	}
 
 	@Override
 	public Category getACategoryDetails(int categoryId) {
-		return categoryRepository.getReferenceById(categoryId);
+		return categoryRepository.getOne(categoryId);
 	}
 	
 	@Override
 	public CarryBox getACarryBoxDetails(int carryBoxId) {
-		return carryBoxRepository.getReferenceById(carryBoxId);
+		return carryBoxRepository.getOne(carryBoxId);
 	}
 
 	@Override
 	public User getAnUserDetails(String emailId) {
-		return userRepository.getReferenceById(emailId);
+		return userRepository.getOne(emailId);
 	}
 
 	@Override
 	public Address getAnAddressDetails(int addressId) {
-		return addressRepository.getReferenceById(addressId);
+		return addressRepository.getOne(addressId);
 	}
 	
 	@Override
@@ -141,7 +141,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 	@Override
 	public Item getAnItemDetails(int itemId) {
-		return itemRepository.getReferenceById(itemId);
+		return itemRepository.getOne(itemId);
 	}
 	
 	@Override
