@@ -66,5 +66,4 @@ public class G4LCanteenApplication implements CommandLineRunner{
 			branch.setAdmin(account);
 			branchRepository.save(branch);
 	    }
-	
 }

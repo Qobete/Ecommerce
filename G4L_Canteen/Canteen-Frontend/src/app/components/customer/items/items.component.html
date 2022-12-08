@@ -24,7 +24,7 @@
         <ng-container *ngFor="let obj of categories | filterItems : filter">
         <div class="itemCard" *ngIf="obj.active">
             <div class="image" >
-                <img src="assets/Images/{{obj.picture}}">
+                <img src="assets/images/{{obj.picture}}">
             </div>
             <div class="priceTag">
                 R{{obj.itemPrice}}
@@ -52,7 +52,7 @@
                 <img src="assets/Images/{{obj.picture}}">
             </div>
             <div class="priceTag">
-                Rs. {{obj.itemPrice}}/-
+                R{{obj.itemPrice}}
             </div>
             <div class="info">
                 <div class="left">
@@ -76,7 +76,7 @@
                 <img src="assets/Images/{{obj.picture}}">
             </div>
             <div class="priceTag">
-                Rs. {{obj.itemPrice}}/-
+                R{{obj.itemPrice}}
             </div>
             <div class="info">
                 <div class="left">
@@ -98,10 +98,10 @@
         </div>
         <div class="itemCard" *ngIf="!obj.active" style="opacity: 0.7; pointer-events: none;">
             <div class="image" >
-                <img src="assets/Images/{{obj.picture}}">
+                <img src="assets/images/{{obj.picture}}">
             </div>
             <div class="priceTag">
-                Rs. {{obj.itemPrice}}/-
+                R{{obj.itemPrice}}
             </div>
             <div class="info">
                 <div class="left">
